@@ -5,7 +5,17 @@
 
 <script>
   function getSession() {
+    const result = document.getElementById('result');
+
+    if (!window.wdobject || typeof window.wdobject.shellreq !== 'function') {
+      result.textContent = '没有检测到 session：wdobject.shellreq 未注入';
+      return;
+    }
+
     const sessionId = window.wdobject.shellreq('{"operate":"getsessionid"}');
-    document.getElementById('result').textContent = sessionId || 'none';
+
+    result.textContent = sessionId
+      ? sessionId
+      : '没有检测到 session';
   }
 </script>
