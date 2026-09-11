@@ -6,6 +6,6 @@
 <script>
   function getSession() {
     const sessionId = window.wdobject.shellreq('{"operate":"getsessionid"}');
-    document.getElementById('result').textContent = sessionId;
+    document.getElementById('result').textContent = sessionId || 'none';
   }
 </script>
